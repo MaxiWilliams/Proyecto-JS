@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./Index.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>CreditoYA</title>
 </head>
 <body>
-    
-    <script src="./Index.Js"></script>
+    <div class="login-container">
+      <h2>Iniciar Sesión</h2>
+      <form>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button id="iniciar" type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
+
+<script src="./Index.Js"></script>    
 </body>
+
 </html>

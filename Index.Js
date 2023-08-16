@@ -109,7 +109,7 @@ function mostrarSelectorFecha() {
         const fecha = new Date(anoSeleccionado, mesSeleccionado - 1, diaSeleccionado);
 
         if (isNaN(fecha)) {
-            alert("Fecha inválida. Asegúrate de ingresar la fecha en formato correcto (dd/mm/aaaa).");
+            Swal.fire("Disculpe, fecha invalida");
         } else {
             const mensaje = `${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()}`;
             alert("Nos vemos el " + mensaje);
@@ -118,4 +118,12 @@ function mostrarSelectorFecha() {
 }
 
 mostrarSelectorFecha();
+
+alert("Ahora procedera a iniciar sesion con el siguiente usuario y contraseña:\n Usuario: MAXIMO\n Contraseña: SANMARTIN")
+
+const botonIniciar = document.getElementById("iniciar")
+
+botonIniciar.addEventListener("click", () =>{
+    Swal.fire("Has Iniciado Sesion!")
+})
 
