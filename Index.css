@@ -6,7 +6,7 @@ body {
   }
   
   /* Estilos para el contenedor de inicio de sesión */
-  .login-container {
+  #login-container {
     width: 300px;
     margin: 100px auto;
     padding: 20px;

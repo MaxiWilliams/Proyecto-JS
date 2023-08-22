@@ -119,11 +119,59 @@ function mostrarSelectorFecha() {
 
 mostrarSelectorFecha();
 
+//INICIO DE SESION
+
 alert("Ahora procedera a iniciar sesion con el siguiente usuario y contraseña:\n Usuario: MAXIMO\n Contraseña: SANMARTIN")
 
-const botonIniciar = document.getElementById("iniciar")
 
-botonIniciar.addEventListener("click", () =>{
-    Swal.fire("Has Iniciado Sesion!")
-})
+const baseDeDatos = [{
+    usuario:"maximo",
+    contraseña:"1234"
+},
+{   usuario:"SANTIAGO",
+    contraseña:"DIEGOL"
+}];
+
+const user = {
+    usuario:"",
+    constraseña:""
+};
+
+const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
+const botonIniciar = document.getElementById("iniciar");
+const app = document.querySelector("#login-container");
+const inputs = document.querySelectorAll("input");
+
+const bienvenida = nombre => {
+    app.innerHTML = `<h1 class='titulo'>Bienvenido/a de nuevo ${nombre}!</h1>`
+};
+
+if(usuarioExistente !== undefined){
+    bienvenida(usuarioExistente.usuario)
+}
+
+botonIniciar.addEventListener("click", ()=>{
+    const userFind = baseDeDatos.find((registro) => user.usuario === registro.usuario && user.constraseña === registro.contraseña)
+
+    if(userFind !== undefined){
+        bienvenida(userFind.usuario)
+        localStorage.setItem("usuario", JSON.stringify(userFind))
+    }
+    else{
+        alert("Disculpe, el usuario y/o contraseña no coinciden")
+    }
+});
+
+
+inputs.forEach((elemento) =>{
+    elemento.addEventListener("input",(event)=>{
+        if(event.target.name === "usuario"){
+            user.usuario = event.target.value;
+        }
+        
+        if(event.target.name === "contraseña"){
+            user.contraseña = event.target.value;
+        };
+    });
+});
 
