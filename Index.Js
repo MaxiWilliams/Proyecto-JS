@@ -121,7 +121,7 @@ mostrarSelectorFecha();
 
 //INICIO DE SESION
 
-alert("Ahora procedera a iniciar sesion con el siguiente usuario y contraseña:\n Usuario: MAXIMO\n Contraseña: SANMARTIN")
+alert("Ahora procedera a iniciar sesion con el siguiente usuario y contraseña:\n Usuario: maximo\n Contraseña: 1234")
 
 
 const baseDeDatos = [{
@@ -151,7 +151,7 @@ botonIniciar.addEventListener("click", ()=>{
     const userFind = baseDeDatos.find((registro) => user.usuario === registro.usuario && user.constraseña === registro.contraseña)
 
     if(userFind !== undefined){
-        app.innerHTML = `<h1 class='titulo'>Bienvenido/a de nuevo ${nombre}!</h1>`
+        app.innerHTML = `<h1 class='titulo'>Bienvenido/a de nuevo ${baseDeDatos.usuario}!</h1>`
         //localStorage.setItem("usuario", JSON.stringify(userFind))
     }
     else{
