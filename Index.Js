@@ -123,39 +123,33 @@ mostrarSelectorFecha();
 
 alert("Ahora procedera a iniciar sesion con el siguiente usuario y contraseña:\n Usuario: maximo\n Contraseña: 1234")
 
-
 const baseDeDatos = [{
     usuario:"maximo",
     contraseña:"1234"
-},
-{   usuario:"SANTIAGO",
-    contraseña:"DIEGOL"
 }];
 
 const user = {
     usuario:"",
-    constraseña:""
+    contraseña:""
 };
 
-//const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
+const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
 const botonIniciar = document.getElementById("iniciar");
 const app = document.querySelector("#login-container");
 const inputs = document.querySelectorAll("input");
 
-
 // if(usuarioExistente !== undefined){
-//     bienvenida(usuarioExistente.usuario)
+//     app.innerHTML = `<h1 class='titulo'>Bienvenido/a de nuevo ${usuarioExistente.usuario}!</h1>`;
 // }
 
-botonIniciar.addEventListener("click", ()=>{
-    const userFind = baseDeDatos.find((registro) => user.usuario === registro.usuario && user.constraseña === registro.contraseña)
+botonIniciar.addEventListener("click", () => {
+    const userFind = baseDeDatos.find((registro) => user.usuario === registro.usuario && user.contraseña === registro.contraseña);
 
-    if(userFind !== undefined){
-        app.innerHTML = `<h1 class='titulo'>Bienvenido/a de nuevo ${baseDeDatos.usuario}!</h1>`
-        //localStorage.setItem("usuario", JSON.stringify(userFind))
-    }
-    else{
-        alert("Disculpe, el usuario y/o contraseña no coinciden")
+    if (userFind !== undefined) {
+        app.innerHTML = `<h1 class='titulo'>Bienvenido/a de nuevo ${userFind.usuario}!</h1>`;
+        localStorage.setItem("usuario", JSON.stringify(userFind));
+    } else {
+        alert("Disculpe, el usuario y/o contraseña no coinciden");
     }
 });
 
